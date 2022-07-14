@@ -1,3 +1,11 @@
+//declare variables globally
+
+let playerSelection = "";
+let computerSelection ="";
+let playerScore = 0;
+let computerScore = 0;
+
+
 //function for computer's random selection:
 //selection with rock, paper, scissors is defined
 //random number from 0-3 is generated
@@ -10,6 +18,22 @@ function computerPlay() {
     return computerChoice;
 }
 
+//functions for tie, playerWin and computerWin
+//return messages as strings
+
+function tie() {
+    return console.log("Tie! Play again!");
+}
+
+function playerWin() {
+    playerScore++;
+    return console.log("You won! " + playerSelection + " beats " + computerSelection + "!");
+}
+
+function computerWin() {
+    computerScore++;
+    return console.log("You lost! " + computerSelection + " beats " + playerSelection + "!");
+}
 
 //function for one round player vs computer
 //compare player input with computer choice
@@ -22,68 +46,67 @@ function computerPlay() {
 function playRound (playerSelection, computerSelection) {
     if (playerSelection == "rock") {
         if (computerSelection == "rock") {
-            return tie();
+        return tie();
         }
         else if (computerSelection == "scissors") {
-            return playerWin();
+        return playerWin();
         }
         else {
-            return computerWin();
+        return computerWin();
         }
     }
     else if (playerSelection == "paper") {
         if (computerSelection == "paper") {
-            return tie();
+        return tie();
         }
         else if (computerSelection == "rock") {
-            return playerWin();
+        return playerWin();
         }
         else {
-            return computerWin();
+        return computerWin();
         }
     }
     else if (playerSelection == "scissors") {
         if (computerSelection == "scissors") {
-            return tie();
+        return tie();
         }
         else if (computerSelection == "paper") {
-            return playerWin();
+        return playerWin();
         }
         else {
-            return computerWin();
+        return computerWin();
         }
     }
     else {
-        return "Wrong input. Try again with rock, paper, or scissors!"
+        console.log("Wrong input. Try again with rock, paper, or scissors!");
     }
-}
-
-//functions for tie, playerWin and computerWin
-//return messages as strings
-
-function tie() {
-    return "Tie! Play again!"
-};
-
-function playerWin() {
-    return ("You won! " + playerSelection + " beats " + computerSelection + "!");
-};
-
-function computerWin() {
-    return ("You lost! " + computerSelection + " beats " + playerSelection + "!");
 }
 
 //function for game
 //ask user for input
 //make lowercase input playerSelection
-//run function for one round
-//start new round with new input
+//run function for one round 
+//loop 5 times
 
 function game() {
     for (let i = 0; i < 5; i++) {
         let playerInput = prompt("What's your pick? Rock, paper, or scissors?", "");
-        let playerSelection = playerInput.toLowerCase();
-        let computerSelection = computerPlay();
+        playerSelection = playerInput.toLowerCase();
+        computerSelection = computerPlay();
         playRound (playerSelection, computerSelection);
     }
+
+//compare final scores
+//display result message
+    if (playerScore > computerScore) {
+        return console.log("You won " + playerScore + " to " + computerScore)
+    }
+    else if (playerScore > computerScore) {
+        return console.log("You lost " + playerScore + " to " + computerScore)
+    }
+    else {
+        return console.log("It's a tie! " + playerScore + " to " + computerScore)
+    }
 }
+
+game();
