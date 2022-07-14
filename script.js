@@ -57,7 +57,17 @@ function playRound (playerSelection, computerSelection) {
     }
 }
 
-
 //functions for tie, playerWin and computerWin
-//show return message
-//add to counters
+//return messages as strings
+
+function tie() {
+    return "Tie! Play again!"
+};
+
+function playerWin() {
+    return ("You won! " + playerSelection + " beats " + computerSelection + "!");
+};
+
+function computerWin() {
+    return ("You lost! " + computerSelection + " beats " + playerSelection + "!");
+}
