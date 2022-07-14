@@ -10,8 +10,6 @@ function computerPlay() {
     return computerChoice;
 }
 
-console.log(computerPlay());
-
 
 //function for one round player vs computer
 //compare player input with computer choice
@@ -55,6 +53,9 @@ function playRound (playerSelection, computerSelection) {
             return computerWin();
         }
     }
+    else {
+        return "Wrong input. Try again with rock, paper, or scissors!"
+    }
 }
 
 //functions for tie, playerWin and computerWin
@@ -70,4 +71,19 @@ function playerWin() {
 
 function computerWin() {
     return ("You lost! " + computerSelection + " beats " + playerSelection + "!");
+}
+
+//function for game
+//ask user for input
+//make lowercase input playerSelection
+//run function for one round
+//start new round with new input
+
+function game() {
+    for (let i = 0; i < 5; i++) {
+        let playerInput = prompt("What's your pick? Rock, paper, or scissors?", "");
+        let playerSelection = playerInput.toLowerCase();
+        let computerSelection = computerPlay();
+        playRound (playerSelection, computerSelection);
+    }
 }
