@@ -27,5 +27,19 @@ h2 {
 .rpsButtons button {
     display: block;
     width: 150px;
-    height: 150px;
+    height: 100px;
+    border-radius: 10px;
+    color: #a95555;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: none;
+    border: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button:active {
+    background-color: #5f2f2f;
 }
