@@ -53,37 +53,38 @@ function computerWin(playerSelection, computerSelection) {
 function playRound (playerSelection, computerSelection) {
     if (playerSelection == "rock") {
         if (computerSelection == "rock") {
-        return tie();
+        tie();
         }
         else if (computerSelection == "scissors") {
-        return playerWin(playerSelection, computerSelection);
+        playerWin(playerSelection, computerSelection);
         }
         else {
-        return computerWin(playerSelection, computerSelection);
+        computerWin(playerSelection, computerSelection);
         }
     }
     else if (playerSelection == "paper") {
         if (computerSelection == "paper") {
-        return tie();
+        tie();
         }
         else if (computerSelection == "rock") {
-        return playerWin(playerSelection, computerSelection);
+        playerWin(playerSelection, computerSelection);
         }
         else {
-        return computerWin(playerSelection, computerSelection);
+        computerWin(playerSelection, computerSelection);
         }
     }
     else if (playerSelection == "scissors") {
         if (computerSelection == "scissors") {
-        return tie();
+        tie();
         }
         else if (computerSelection == "paper") {
-        return playerWin(playerSelection, computerSelection);
+        playerWin(playerSelection, computerSelection);
         }
         else {
-        return computerWin(playerSelection, computerSelection);
+        computerWin(playerSelection, computerSelection);
         }
     }
+    endGame();
 }
 
 //function for game
