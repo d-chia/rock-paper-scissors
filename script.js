@@ -27,11 +27,13 @@ function tie() {
 
 function playerWin() {
     playerScore++;
+    updateScore();
     return console.log("You won! " + playerSelection + " beats " + computerSelection + "!");
 }
 
 function computerWin() {
     computerScore++;
+    updateScore();
     return console.log("You lost! " + computerSelection + " beats " + playerSelection + "!");
 }
 
@@ -78,7 +80,7 @@ function playRound (playerSelection, computerSelection) {
         }
     }
     else {
-        console.log("Wrong input. Try again with rock, paper, or scissors!");
+        alert("Wrong input. Try again with rock, paper, or scissors!");
     }
 }
 
@@ -118,20 +120,19 @@ buttons.forEach((button) =>
 });
 
 
-//display score for player in scoreboard section
+//function to update/display score for player in scoreboard section
 
-const displayPlayerScore = document.querySelector("#playerScore");
+const playerCounter = document.querySelector("#playerCounter");
+const computerCounter = document.querySelector("#computerCounter");
 
-const currentPlayerScore = document.createElement("p");
-currentPlayerScore.textContent = playerScore;
-displayPlayerScore.appendChild(currentPlayerScore);
+function updateScore () {
+    //update playerScore
+    playerCounter.textContent = playerScore;
+    //update computerScore
+    computerCounter.textContent = computerScore;
+};
 
-//display score for computer in scoreboard section
 
-const displayComputerScore = document.querySelector("#computerScore");
-
-const currentComputerScore = document.createElement("p");
-currentComputerScore.textContent = computerScore;
-displayComputerScore.appendChild(currentComputerScore);
+updateScore();
 
 // game();
