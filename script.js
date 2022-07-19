@@ -88,13 +88,13 @@ function playRound (playerSelection, computerSelection) {
 //run function for one round 
 //loop 5 times
 
-function game() {
-    for (let i = 0; i < 5; i++) {
-        let playerInput = prompt("What's your pick? Rock, paper, or scissors?", "");
-        playerSelection = playerInput.toLowerCase();
-        computerSelection = computerPlay();
-        playRound (playerSelection, computerSelection);
-    }
+// function game() {
+//     for (let i = 0; i < 5; i++) {
+//         let playerInput = prompt("What's your pick? Rock, paper, or scissors?", "");
+//         playerSelection = playerInput.toLowerCase();
+//         computerSelection = computerPlay();
+//         playRound (playerSelection, computerSelection);
+//     }
 
 //compare final scores
 //display result message
