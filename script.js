@@ -107,6 +107,11 @@ function playRound (playerSelection, computerSelection) {
     else {
         return console.log("It's a tie! " + playerScore + " to " + computerScore)
     }
-}
 
-game();
+
+
+const buttons = document.querySelectorAll(".rpsButton");
+
+
+
+// game();

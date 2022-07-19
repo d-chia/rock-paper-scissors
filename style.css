@@ -17,14 +17,14 @@ h2 {
     margin: 40px 0px;
 }
 
-.rpsButtons {
+.rpsButtonDiv {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20px;
 }
 
-.rpsButtons button {
+.rpsButtonDiv button {
     display: block;
     width: 150px;
     height: 100px;
@@ -36,10 +36,10 @@ h2 {
     border: none;
 }
 
-button:hover {
+.rpsButton:hover {
     cursor: pointer;
 }
 
-button:active {
+.rpsButton:active {
     background-color: #5f2f2f;
 }
