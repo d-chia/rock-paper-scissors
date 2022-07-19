@@ -118,6 +118,20 @@ buttons.forEach((button) =>
 });
 
 
+//display score for player in scoreboard section
 
+const displayPlayerScore = document.querySelector("#playerScore");
+
+const currentPlayerScore = document.createElement("p");
+currentPlayerScore.textContent = playerScore;
+displayPlayerScore.appendChild(currentPlayerScore);
+
+//display score for computer in scoreboard section
+
+const displayComputerScore = document.querySelector("#computerScore");
+
+const currentComputerScore = document.createElement("p");
+currentComputerScore.textContent = computerScore;
+displayComputerScore.appendChild(currentComputerScore);
 
 // game();
