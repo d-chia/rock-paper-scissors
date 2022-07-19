@@ -9,8 +9,23 @@ body {
 
 h1 {
     text-align: center;
+    margin: 40px 0px;
 }
 
 h2 {
     text-align: center;
+    margin: 40px 0px;
+}
+
+.rpsButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.rpsButtons button {
+    display: block;
+    width: 150px;
+    height: 150px;
 }
