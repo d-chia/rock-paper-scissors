@@ -98,19 +98,25 @@ function playRound (playerSelection, computerSelection) {
 
 //compare final scores
 //display result message
-    if (playerScore > computerScore) {
-        return console.log("You won " + playerScore + " to " + computerScore)
-    }
-    else if (playerScore > computerScore) {
-        return console.log("You lost " + playerScore + " to " + computerScore)
-    }
-    else {
-        return console.log("It's a tie! " + playerScore + " to " + computerScore)
-    }
+//     if (playerScore > computerScore) {
+//         return console.log("You won " + playerScore + " to " + computerScore)
+//     }
+//     else if (playerScore > computerScore) {
+//         return console.log("You lost " + playerScore + " to " + computerScore)
+//     }
+//     else {
+//         return console.log("It's a tie! " + playerScore + " to " + computerScore)
+//     }
+// };
 
-
+//add event listeners for all rps buttons that plays a round with button id vs computerPlay
 
 const buttons = document.querySelectorAll(".rpsButton");
+
+buttons.forEach((button) => 
+    {button.addEventListener("click", () => playRound(button.id, computerPlay()))
+});
+
 
 
 
