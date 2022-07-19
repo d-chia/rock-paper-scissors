@@ -43,3 +43,13 @@ h2 {
 .rpsButton:active {
     background-color: #5f2f2f;
 }
+
+.scoreBoard {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.scoreBoard p {
+    font-weight: bold;
+}
