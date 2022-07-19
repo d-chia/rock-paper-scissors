@@ -19,22 +19,27 @@ function computerPlay() {
 }
 
 //functions for tie, playerWin and computerWin
-//return messages as strings
+//take playerSelection and computerSelection from eventListener as arguments
+//show messages with result on page; 
+
+const resultMessage = document.querySelector("#resultMessage");
 
 function tie() {
-    return console.log("Tie! Play again!");
+    resultMessage.innerText = "Tie! Play again!";
 }
 
-function playerWin() {
+function playerWin(playerSelection, computerSelection) {
     playerScore++;
     updateScore();
-    return console.log("You won! " + playerSelection + " beats " + computerSelection + "!");
+    resultMessage.innerText = "You won! " + playerSelection + " beats " + computerSelection + "!";
+    endGame();
 }
 
-function computerWin() {
+function computerWin(playerSelection, computerSelection) {
     computerScore++;
     updateScore();
-    return console.log("You lost! " + computerSelection + " beats " + playerSelection + "!");
+    resultMessage.innerText = "You lost! " + computerSelection + " beats " + playerSelection + "!";
+    endGame();
 }
 
 //function for one round player vs computer
@@ -51,10 +56,10 @@ function playRound (playerSelection, computerSelection) {
         return tie();
         }
         else if (computerSelection == "scissors") {
-        return playerWin();
+        return playerWin(playerSelection, computerSelection);
         }
         else {
-        return computerWin();
+        return computerWin(playerSelection, computerSelection);
         }
     }
     else if (playerSelection == "paper") {
@@ -62,10 +67,10 @@ function playRound (playerSelection, computerSelection) {
         return tie();
         }
         else if (computerSelection == "rock") {
-        return playerWin();
+        return playerWin(playerSelection, computerSelection);
         }
         else {
-        return computerWin();
+        return computerWin(playerSelection, computerSelection);
         }
     }
     else if (playerSelection == "scissors") {
@@ -73,14 +78,11 @@ function playRound (playerSelection, computerSelection) {
         return tie();
         }
         else if (computerSelection == "paper") {
-        return playerWin();
+        return playerWin(playerSelection, computerSelection);
         }
         else {
-        return computerWin();
+        return computerWin(playerSelection, computerSelection);
         }
-    }
-    else {
-        alert("Wrong input. Try again with rock, paper, or scissors!");
     }
 }
 
@@ -115,9 +117,13 @@ function playRound (playerSelection, computerSelection) {
 
 const buttons = document.querySelectorAll(".rpsButton");
 
-buttons.forEach((button) => 
-    {button.addEventListener("click", () => playRound(button.id, computerPlay()))
-});
+buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+            playRound(button.id, computerPlay());
+            console.log(button.id);
+        })
+    }
+);
 
 
 //function to update/display score for player in scoreboard section
@@ -133,6 +139,25 @@ function updateScore () {
 };
 
 
-updateScore();
+
+//function to end game when a player is at 5
+//displays winner
+
+function endGame () {
+    if (playerScore == 5) {
+        alert("You won " + playerScore + " to " + computerScore);
+        computerScore = 0;
+        playerScore = 0;
+        updateScore();
+    } else if (computerScore == 5) {
+        alert("You lost " + playerScore + " to " + computerScore);
+        computerScore = 0;
+        playerScore = 0;
+        updateScore();
+    }
+}
 
 // game();
+
+
+//TO DO: FIX PROPER END GAME MESSAGE AND COUNTER RESET
