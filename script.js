@@ -18,29 +18,18 @@ function computerPlay() {
     return computerChoice;
 }
 
-//functions for tie, playerWin and computerWin
-//take playerSelection and computerSelection from eventListener as arguments
-//show messages with result on page; 
 
-const resultMessage = document.querySelector("#resultMessage");
+//add event listeners for all rps buttons that plays a round with button id vs computerPlay
 
-function tie() {
-    resultMessage.innerText = "Tie! Play again!";
-}
+const buttons = document.querySelectorAll(".rpsButton");
 
-function playerWin(playerSelection, computerSelection) {
-    playerScore++;
-    updateScore();
-    resultMessage.innerText = "You won! " + playerSelection + " beats " + computerSelection + "!";
-    endGame();
-}
+buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+            playRound(button.id, computerPlay());
+        })
+    }
+);
 
-function computerWin(playerSelection, computerSelection) {
-    computerScore++;
-    updateScore();
-    resultMessage.innerText = "You lost! " + computerSelection + " beats " + playerSelection + "!";
-    endGame();
-}
 
 //function for one round player vs computer
 //compare player input with computer choice
@@ -48,7 +37,7 @@ function computerWin(playerSelection, computerSelection) {
 //if player picked rock and computer picked scissor: player win
 //if player picked rock and computer picked paper: computer win
 //... 
-//return result as call for function
+//call win function with selections as arguments
 
 function playRound (playerSelection, computerSelection) {
     if (playerSelection == "rock") {
@@ -87,7 +76,68 @@ function playRound (playerSelection, computerSelection) {
     endGame();
 }
 
-//function for game
+
+//functions for tie, playerWin and computerWin
+//take playerSelection and computerSelection from eventListener as arguments
+//increment score counter and show messages with result on page; 
+
+const resultMessage = document.querySelector("#resultMessage");
+
+function tie() {
+    resultMessage.innerText = "Tie! Play again!";
+}
+
+function playerWin(playerSelection, computerSelection) {
+    playerScore++;
+    updateScore();
+    resultMessage.innerText = "You won! " + playerSelection + " beats " + computerSelection + "!";
+    endGame();
+}
+
+function computerWin(playerSelection, computerSelection) {
+    computerScore++;
+    updateScore();
+    resultMessage.innerText = "You lost! " + computerSelection + " beats " + playerSelection + "!";
+    endGame();
+}
+
+
+//function to update/display score for player in scoreboard section
+
+const playerCounter = document.querySelector("#playerCounter");
+const computerCounter = document.querySelector("#computerCounter");
+
+function updateScore () {
+    //update playerScore
+    playerCounter.textContent = playerScore;
+    //update computerScore
+    computerCounter.textContent = computerScore;
+};
+
+
+//function to end game when a player is at 5
+//displays winner
+
+function endGame () {
+    if (playerScore == 5) {
+        alert("You won " + playerScore + " to " + computerScore);
+        computerScore = 0;
+        playerScore = 0;
+        updateScore();
+    } else if (computerScore == 5) {
+        alert("You lost " + playerScore + " to " + computerScore);
+        computerScore = 0;
+        playerScore = 0;
+        updateScore();
+    }
+}
+
+
+
+
+
+
+//function for game of 5
 //ask user for input
 //make lowercase input playerSelection
 //run function for one round 
@@ -114,51 +164,5 @@ function playRound (playerSelection, computerSelection) {
 //     }
 // };
 
-//add event listeners for all rps buttons that plays a round with button id vs computerPlay
-
-const buttons = document.querySelectorAll(".rpsButton");
-
-buttons.forEach((button) => {
-        button.addEventListener("click", () => {
-            playRound(button.id, computerPlay());
-            console.log(button.id);
-        })
-    }
-);
-
-
-//function to update/display score for player in scoreboard section
-
-const playerCounter = document.querySelector("#playerCounter");
-const computerCounter = document.querySelector("#computerCounter");
-
-function updateScore () {
-    //update playerScore
-    playerCounter.textContent = playerScore;
-    //update computerScore
-    computerCounter.textContent = computerScore;
-};
-
-
-
-//function to end game when a player is at 5
-//displays winner
-
-function endGame () {
-    if (playerScore == 5) {
-        alert("You won " + playerScore + " to " + computerScore);
-        computerScore = 0;
-        playerScore = 0;
-        updateScore();
-    } else if (computerScore == 5) {
-        alert("You lost " + playerScore + " to " + computerScore);
-        computerScore = 0;
-        playerScore = 0;
-        updateScore();
-    }
-}
 
 // game();
-
-
-//TO DO: FIX PROPER END GAME MESSAGE AND COUNTER RESET
