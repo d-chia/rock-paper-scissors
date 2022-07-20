@@ -87,14 +87,14 @@ function tie() {
 function playerWin(playerSelection, computerSelection) {
     playerScore++;
     updateScore();
-    resultMessage.innerText = "You won! " + playerSelection + " beats " + computerSelection + "!";
+    resultMessage.innerText = "Point for you! " + playerSelection + " beats " + computerSelection + "!";
     endGame();
 }
 
 function computerWin(playerSelection, computerSelection) {
     computerScore++;
     updateScore();
-    resultMessage.innerText = "You lost! " + computerSelection + " beats " + playerSelection + "!";
+    resultMessage.innerText = "Oh no! " + computerSelection + " beats " + playerSelection + "!";
     endGame();
 }
 
@@ -115,20 +115,29 @@ function updateScore () {
 //function to end game when a player is at 5
 //displays winner
 
+// function endGame () {
+//     if (playerScore == 5) {
+//         alert("You won " + playerScore + " to " + computerScore);
+//         computerScore = 0;
+//         playerScore = 0;
+//         updateScore();
+//     } else if (computerScore == 5) {
+//         alert("You lost " + playerScore + " to " + computerScore);
+//         computerScore = 0;
+//         playerScore = 0;
+//         updateScore();
+//     }
+// }
+
+const headerScore = document.querySelector("#headerScore");
+
 function endGame () {
     if (playerScore == 5) {
-        alert("You won " + playerScore + " to " + computerScore);
-        computerScore = 0;
-        playerScore = 0;
-        updateScore();
-    } else if (computerScore == 5) {
-        alert("You lost " + playerScore + " to " + computerScore);
-        computerScore = 0;
-        playerScore = 0;
-        updateScore();
+        headerScore.innerText = "You won! The final score is:";
+    } else if (computerScore ==5) {
+        headerScore.innerText = "You lost! The final score is:";
     }
 }
-
 
 
 
