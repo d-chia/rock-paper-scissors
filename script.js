@@ -26,6 +26,16 @@ const buttons = document.querySelectorAll(".rpsButton");
 
 buttons.forEach((button) => {
         button.addEventListener("click", () => {
+            if (computerScore == 5) {
+                computerScore = 0;
+                playerScore = 0;
+                headerScore.innerText = "The score is:";
+            } else if (playerScore == 5) {
+                computerScore = 0;
+                playerScore = 0;
+                headerScore.innerText = "The score is:";
+                updateScore();
+                }
             playRound(button.id, computerPlay());
         })
     }
