@@ -19,7 +19,8 @@ function computerPlay() {
 }
 
 
-//add event listeners for all rps buttons that plays a round with button id vs computerPlay
+//add event listeners for all rps buttons
+//passes selection as button.id to playRound along with random computerPlay
 
 const buttons = document.querySelectorAll(".rpsButton");
 
@@ -34,10 +35,6 @@ buttons.forEach((button) => {
 //function for one round player vs computer
 //compare player input with computer choice
 //if it's the same: tie
-//if player picked rock and computer picked scissor: player win
-//if player picked rock and computer picked paper: computer win
-//... 
-//call win function with selections as arguments
 
 function playRound (playerSelection, computerSelection) {
     if (playerSelection == "rock") {
@@ -78,7 +75,7 @@ function playRound (playerSelection, computerSelection) {
 
 
 //functions for tie, playerWin and computerWin
-//take playerSelection and computerSelection from eventListener as arguments
+//take playerSelection and computerSelection from playRound as arguments 
 //increment score counter and show messages with result on page; 
 
 const resultMessage = document.querySelector("#resultMessage");
@@ -136,7 +133,7 @@ function endGame () {
 
 
 
-
+//REMOVED
 //function for game of 5
 //ask user for input
 //make lowercase input playerSelection
